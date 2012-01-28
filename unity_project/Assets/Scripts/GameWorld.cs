@@ -13,7 +13,10 @@ public class GameWorld : MonoBehaviour {
 	public float SpeedStep = 0.1f;
 	public float MinSpeed = 1;
 	public float MaxSpeed = 20;
-	
+	public EmotionStates Emotions{
+		get;
+		set;
+	}
 	private float runningTime = 0.0f;
 	
 	void Awake(){
@@ -23,11 +26,12 @@ public class GameWorld : MonoBehaviour {
 		if(Instance == null){
 			Instance = this;
 		}
+		Emotions= new EmotionStates();
 	}
 	
 	void Update(){
 		if(runningTime >= CheerUpTime){
-			Debug.Log("Increase Happyness");
+			//Debug.Log("Increase Happyness");
 			RobotEntity.IncreaseHappyness();
 			runningTime = 0;
 		} else 
