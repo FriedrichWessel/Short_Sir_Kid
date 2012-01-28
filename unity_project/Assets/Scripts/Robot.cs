@@ -11,7 +11,16 @@ public class Robot : MonoBehaviour {
 	private float decreaseSteps;
 	private float maxSpeed; 
 	private float minSpeed;
+	private float afterTumblingSpeedUp;
 	
+	private float targetTumbleTime;
+	private float timeTumbling;
+	private bool tumbling = false;
+	
+	public bool AfterTumbling{
+		get;
+		private set;
+	}
 	public EmotionStates.States currentState{
 		get;
 		private set;
@@ -34,15 +43,35 @@ public class Robot : MonoBehaviour {
 		minSpeed = GameWorld.Instance.MinSpeed;
 		maxSpeed = GameWorld.Instance.MaxSpeed;
 		currentState = GameWorld.Instance.Emotions.GetState(currentSpeed);
+		targetTumbleTime = 0;
+		timeTumbling = 0;
 		lastState = currentState;
+		AfterTumbling = false;
+		afterTumblingSpeedUp = GameWorld.Instance.AfterTumblingSpeedUp;
 		
 		charControler = GetComponent<CharacterController>();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		calculateDirection();
-		move(currentDirection);
+		if(tumbling){
+			timeTumbling += Time.deltaTime;
+			if(timeTumbling >= targetTumbleTime){
+				currentSpeed = 0;
+				tumbling = false;
+				timeTumbling = 0;
+			}
+		} else if(AfterTumbling){
+			//currentSpeed += afterTumblingSpeedUp;
+			IncreaseHappyness(afterTumblingSpeedUp);
+			if(currentSpeed == minSpeed)
+				AfterTumbling = false;
+		} 
+		else {
+			calculateDirection();
+			move(currentDirection);	
+		}
+		
 	}
 	
 	private void calculateDirection(){
@@ -102,6 +131,12 @@ public class Robot : MonoBehaviour {
 		if(currentSpeed <= minSpeed)
 			currentSpeed = minSpeed;
 		
+	}
+	
+	public void Tumble(float time){
+		Debug.Log("Tumble");
+		currentSpeed = 0;
+		tumbling = true;
 	}
 	
 	private void checkEmotionState(){

@@ -22,6 +22,8 @@ public class GameWorld : MonoBehaviour {
 	public float SoftStopperStep = 2;
 	public float SpeedUpStep = 4;
 	public float BurstSlowDownStep = 0.5f;
+	public float AfterTumblingSpeedUp = 1;
+	public float TumbleTime = 2;
 	
 	
 	
@@ -53,9 +55,9 @@ public class GameWorld : MonoBehaviour {
 			runningTime = 0;
 		} else 
 			runningTime += Time.deltaTime;
-		Debug.Log("Distance: " + (RobotEntity.transform.position.x -  PredatorEntity.transform.position.x));
+		//Debug.Log("Distance: " + (RobotEntity.transform.position.x -  PredatorEntity.transform.position.x));
 		if(RobotEntity.transform.position.x -  PredatorEntity.transform.position.x > PredatorMaxDistance){
-			Debug.Log("Predator Pulled");
+			//Debug.Log("Predator Pulled");
 			var pos = PredatorEntity.transform.position;
 			pos.x = RobotEntity.transform.position.x;
 			pos.x -= PredatorMaxDistance;

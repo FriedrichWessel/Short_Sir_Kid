@@ -5,6 +5,8 @@
 unity_project/Temp/*
 unity_project/Library/*
 build/*
+3d/
+images/
 !unity_project/Library/*.asset
 !unity_project/Library/AssetImportState
 !unity_project/Library/AssetVersioning.db
