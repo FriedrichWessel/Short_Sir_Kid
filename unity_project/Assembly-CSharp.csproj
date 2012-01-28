@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\EmotionStates.cs" />
      <Compile Include="Assets\Scripts\EnvironmentScript.cs" />
      <Compile Include="Assets\Scripts\GameWorld.cs" />
+     <Compile Include="Assets\Scripts\Predator.cs" />
      <Compile Include="Assets\Scripts\Robot.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

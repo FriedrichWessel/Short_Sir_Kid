@@ -13,12 +13,16 @@ public class GameWorld : MonoBehaviour {
 	public float SpeedStep = 0.1f;
 	public float MinSpeed = 1;
 	public float MaxSpeed = 20;
+	public float PredatorSpeed = 5;
+	
+	
+	private float runningTime = 0.0f;
+	
+	
 	public EmotionStates Emotions{
 		get;
 		set;
 	}
-	private float runningTime = 0.0f;
-	
 	void Awake(){
 		if(Instance != null){
 			Debug.Log("Already get an GeneralValues");
