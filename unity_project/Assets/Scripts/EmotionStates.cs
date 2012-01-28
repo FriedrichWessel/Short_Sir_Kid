@@ -23,8 +23,8 @@ public class EmotionStates  {
 		var minSpeed = GameWorld.Instance.MinSpeed;
 		var maxSpeed = GameWorld.Instance.MaxSpeed;
 		var statePercentage = ( ( currentSpeed - minSpeed ) / (maxSpeed - minSpeed) ) * (100 - 0) + 0; 
-		Debug.Log("currentSpeed: " + currentSpeed);
-		Debug.Log("Percentage: " + statePercentage);
+		//Debug.Log("currentSpeed: " + currentSpeed);
+		//Debug.Log("Percentage: " + statePercentage);
 		if(statePercentage <= TooSlow)
 			return States.TooSlow;
 		else if(statePercentage <= MiddleSlow)

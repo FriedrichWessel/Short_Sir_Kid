@@ -99,7 +99,7 @@ public class Robot : MonoBehaviour {
 	private void checkEmotionState(){
 		// Just a Dummy
 		currentState = GameWorld.Instance.Emotions.GetState(currentSpeed);
-		Debug.Log("currentState: " + currentState);
+		//Debug.Log("currentState: " + currentState);
 		if(lastState != currentState){
 			if(currentState == EmotionStates.States.TooFast){
 				Debug.Log("Reached To Fast");
