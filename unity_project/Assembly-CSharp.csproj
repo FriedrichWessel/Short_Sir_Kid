@@ -57,6 +57,8 @@
      <Compile Include="Assets\Scripts\EnvironmentScript.cs" />
      <Compile Include="Assets\Scripts\GameWorld.cs" />
      <Compile Include="Assets\Scripts\HideOnPlay.cs" />
+     <Compile Include="Assets\Scripts\PlatformMover.cs" />
+     <Compile Include="Assets\Scripts\PlatformTrigger.cs" />
      <Compile Include="Assets\Scripts\Predator.cs" />
      <Compile Include="Assets\Scripts\Robot.cs" />
   </ItemGroup>
