@@ -3,7 +3,6 @@ using System.Collections;
 
 public class ColliderScript : MonoBehaviour {
 	
-	public GameObject player;
 	public ColliderType colliderType;
 	
 	public enum ColliderType {
@@ -27,14 +26,14 @@ public class ColliderScript : MonoBehaviour {
 	
 	void OnTriggerEnter( Collider obj ) {
 		// here enum checks
-		if (obj.gameObject.tag == "player") {
+		if (obj.gameObject.tag == "Player") {
 			obj.gameObject.renderer.material.color = Color.cyan;
 		}
 	}
 	
 	void OnTriggerExit( Collider obj ) {
 		// here enum checks
-		if (obj.gameObject.tag == "player") {
+		if (obj.gameObject.tag == "Player") {
 			obj.gameObject.renderer.material.color = Color.green;
 		}
 	}

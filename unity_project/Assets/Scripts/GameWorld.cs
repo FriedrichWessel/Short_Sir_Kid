@@ -35,7 +35,8 @@ public class GameWorld : MonoBehaviour {
 			
 	}
 	
-	public void GameEnd(){
+	public void GameEnd(bool winGame){
+		// Dummy in the moment
 		Application.LoadLevel("EndScreen");
 	}
 	

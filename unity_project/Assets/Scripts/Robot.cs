@@ -56,24 +56,32 @@ public class Robot : MonoBehaviour {
 	}
 	
 	public void IncreaseHappyness(){
-		IncreaseSpeed(increaseSteps);
+		IncreaseHappyness(increaseSteps);
 		// later we do some graphic changes here
 	}
 	
 	public void DecreaseHappyness(){
 		Debug.Log("Decreas Happyness");
-		DecreaseSpeed(increaseSteps);
+		DecreaseHappyness(increaseSteps);
 		// later we do some graphic changes here
 	}
 	
-	public void IncreaseSpeed(float difference){
+	public void IncreaseHappyness(float changeValue){
+		IncreaseSpeed(changeValue);
+	}
+	
+	public void DecreaseHappyness(float changeValue){
+		DecreaseSpeed(changeValue);
+	}
+	
+	private void IncreaseSpeed(float difference){
 		currentSpeed += difference;
 		if(currentSpeed >= maxSpeed)
 			currentSpeed = maxSpeed;
 		checkEmotionState();
 	}
 	
-	public void DecreaseSpeed(float difference){
+	private void DecreaseSpeed(float difference){
 		currentSpeed -= difference;
 		if(currentSpeed <= minSpeed)
 			currentSpeed = minSpeed;

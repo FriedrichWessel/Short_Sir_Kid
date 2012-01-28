@@ -44,7 +44,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\PlatformScript.cs" />
+     <Compile Include="Assets\Scripts\ColliderScript.cs" />
      <Compile Include="Assets\Scripts\ControllerInput.cs" />
+     <Compile Include="Assets\Scripts\EnvironmentScript.cs" />
      <Compile Include="Assets\Scripts\GameWorld.cs" />
      <Compile Include="Assets\Scripts\Robot.cs" />
   </ItemGroup>
