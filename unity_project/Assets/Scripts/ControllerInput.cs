@@ -27,7 +27,7 @@ public class ControllerInput : MonoBehaviour {
 			if(timeSinceLastHit < hitCooldown){
 				
 			} else {
-				robot.DecreaseHappyness();
+				robot.Hit();
 				timeSinceLastHit = 0;
 			}
 			

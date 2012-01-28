@@ -35,4 +35,20 @@ public class EmotionStates  {
 			return States.TooFast;
 			
 	}
+	
+	public float GetStateSpeed(States targetState){
+		var maxSpeed = GameWorld.Instance.MaxSpeed;
+		if(targetState == EmotionStates.States.TooSlow)
+			return maxSpeed * (TooSlow/100);
+		else if(targetState == EmotionStates.States.MiddleSlow)
+			return maxSpeed * (MiddleSlow/100);
+		else if(targetState == EmotionStates.States.MiddleFast)
+			return maxSpeed * (MiddleFast/100);
+		else if(targetState == EmotionStates.States.TooFast)
+			return maxSpeed * (TooFast/100);
+		else {
+			Debug.LogError("Unkown State requestet: ");
+			return 0;
+		}
+	}
 }

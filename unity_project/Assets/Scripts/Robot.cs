@@ -64,12 +64,18 @@ public class Robot : MonoBehaviour {
 			currentDirection.y =  jumpHeight;
 	}
 	
+	public void Hit(){
+		if(GameWorld.Instance.Emotions.GetState(currentSpeed) == EmotionStates.States.TooFast)
+			currentSpeed = GameWorld.Instance.Emotions.GetStateSpeed(EmotionStates.States.TooSlow);
+		else 
+			DecreaseHappyness(decreaseSteps);
+	}
 	public void IncreaseHappyness(){
 		IncreaseHappyness(increaseSteps);
 	}
 	
 	public void DecreaseHappyness(){
-		Debug.Log("Decreas Happyness");
+		//Debug.Log("Decreas Happyness");
 		DecreaseHappyness(decreaseSteps);
 		
 	}
