@@ -3,9 +3,13 @@ using System.Collections;
 
 public class Robot : MonoBehaviour {
 
-	private float moveSpeed;
+	private float generalMoveSpeed;
+	private float currentSpeed;
 	private float jumpHeight;
 	private float gravity;
+	private float increaseSteps;
+	private float maxSpeed; 
+	private float minSpeed;
 	
 	private CharacterController charControler;
 	
@@ -14,38 +18,33 @@ public class Robot : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		Debug.Log("Start Robot");
-		moveSpeed = GeneralValues.Instance.MoveSpeed;
-		jumpHeight = GeneralValues.Instance.JumpHeight;
-		currentDirection = new Vector3(moveSpeed,0,0);
-		gravity = GeneralValues.Instance.Gravity;
+		generalMoveSpeed = GameWorld.Instance.MoveSpeed;
+		jumpHeight = GameWorld.Instance.JumpHeight;
+		currentDirection = new Vector3(generalMoveSpeed,0,0);
+		gravity = GameWorld.Instance.Gravity;
+		currentSpeed = generalMoveSpeed;
+		increaseSteps = GameWorld.Instance.SpeedStep;
+		minSpeed = GameWorld.Instance.MinSpeed;
+		maxSpeed = GameWorld.Instance.MaxSpeed;
 		
 		charControler = GetComponent<CharacterController>();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		//var direction = new  Vector3(moveSpeed, 0, 0 );
 		calculateDirection();
 		move(currentDirection);
 	}
 	
 	private void calculateDirection(){
-		currentDirection.x = moveSpeed;
+		currentDirection.x = currentSpeed;
 		currentDirection.y -= gravity * Time.deltaTime;
-		/*Debug.Log("Time Delta: " + Time.deltaTime);
-		Debug.Log("Move Speed: " + moveSpeed);
-		Debug.Log ("CurrentDirection("+currentDirection.x+"," + currentDirection.y+","+currentDirection.z+")");*/
-		
-		//currentDirection = currentDirection * Time.deltaTime;
 	}
 	
 	private void move(Vector3 direction){
-		//gameObject.transform.Translate(direction);
 		
 		if(charControler != null){
-			//Debug.Log("Move the Guy" + direction.x + " " + direction.y + " " + direction.z);	
 			charControler.Move(direction * Time.deltaTime);
-			
 		}
 			
 		
@@ -55,4 +54,34 @@ public class Robot : MonoBehaviour {
 		if(charControler.isGrounded)
 			currentDirection.y =  jumpHeight;
 	}
+	
+	public void IncreaseHappyness(){
+		IncreaseSpeed(increaseSteps);
+		// later we do some graphic changes here
+	}
+	
+	public void DecreaseHappyness(){
+		Debug.Log("Decreas Happyness");
+		DecreaseSpeed(increaseSteps);
+		// later we do some graphic changes here
+	}
+	
+	public void IncreaseSpeed(float difference){
+		currentSpeed += difference;
+		if(currentSpeed >= maxSpeed)
+			currentSpeed = maxSpeed;
+		checkEmotionState();
+	}
+	
+	public void DecreaseSpeed(float difference){
+		currentSpeed -= difference;
+		if(currentSpeed <= minSpeed)
+			currentSpeed = minSpeed;
+		checkEmotionState();
+	}
+	
+	private void checkEmotionState(){
+		// Just a Dummy
+	}
+	
 }

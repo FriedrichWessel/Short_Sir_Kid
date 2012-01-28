@@ -45,7 +45,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\ControllerInput.cs" />
-     <Compile Include="Assets\Scripts\GeneralValues.cs" />
+     <Compile Include="Assets\Scripts\GameWorld.cs" />
      <Compile Include="Assets\Scripts\Robot.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
