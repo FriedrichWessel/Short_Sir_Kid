@@ -17,15 +17,12 @@ public class GameWorld : MonoBehaviour {
 	public float MinSpeed = 1;
 	public float MaxSpeed = 20;
 	public float PredatorSpeed = 5;
-<<<<<<< HEAD
 	public float PredatorMaxDistance = 1;
 	public float HardStopperStep = 4;
 	public float SoftStopperStep = 2;
 	public float SpeedUpStep = 4;
 	public float BurstSlowDownStep = 0.5f;
 	
-=======
->>>>>>> arda
 	
 	
 	private float runningTime = 0.0f;
@@ -51,11 +48,7 @@ public class GameWorld : MonoBehaviour {
 	void Update(){
 		if(runningTime >= CheerUpTime){
 
-<<<<<<< HEAD
 			//Debug.Log("Increase Happyness");
-=======
-			Debug.Log("Increase Happyness");
->>>>>>> arda
 			RobotEntity.IncreaseHappyness();
 			runningTime = 0;
 		} else 

@@ -12,7 +12,7 @@ public class FinishLine : MonoBehaviour {
 	public void OnTriggerEnter( Collider obj ) {
 		if( obj.gameObject.tag == "Player" ) {
 			GameWorld.Instance.GameEnd(true);
-			Application.LoadLevel(0);
+			//Application.LoadLevel(0);
 		}
 	}
 	

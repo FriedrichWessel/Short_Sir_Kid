@@ -75,13 +75,8 @@ public class Robot : MonoBehaviour {
 	}
 	
 	public void DecreaseHappyness(){
-<<<<<<< HEAD
 		//Debug.Log("Decreas Happyness");
 		DecreaseHappyness(decreaseSteps);
-=======
-		Debug.Log("Decreas Happyness");
-		DecreaseHappyness(increaseSteps);
->>>>>>> arda
 		
 	}
 	
@@ -112,11 +107,7 @@ public class Robot : MonoBehaviour {
 	private void checkEmotionState(){
 		// Just a Dummy
 		currentState = GameWorld.Instance.Emotions.GetState(currentSpeed);
-<<<<<<< HEAD
 		//Debug.Log("currentState: " + currentState);
-=======
-		Debug.Log("currentState: " + currentState);
->>>>>>> arda
 		if(lastState != currentState){
 			if(currentState == EmotionStates.States.TooFast){
 				Debug.Log("Reached To Fast");
