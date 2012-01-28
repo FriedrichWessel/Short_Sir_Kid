@@ -11,11 +11,14 @@ public class Robot : MonoBehaviour {
 	private float maxSpeed; 
 	private float minSpeed;
 	
+<<<<<<< HEAD
 	public EmotionStates.States currentState{
 		get;
 		private set;
 	} 
 	private EmotionStates.States lastState;
+=======
+>>>>>>> arda
 	private CharacterController charControler;
 	
 	private Vector3 currentDirection;
@@ -31,8 +34,11 @@ public class Robot : MonoBehaviour {
 		increaseSteps = GameWorld.Instance.SpeedStep;
 		minSpeed = GameWorld.Instance.MinSpeed;
 		maxSpeed = GameWorld.Instance.MaxSpeed;
+<<<<<<< HEAD
 		currentState = GameWorld.Instance.Emotions.GetState(currentSpeed);
 		lastState = currentState;
+=======
+>>>>>>> arda
 		
 		charControler = GetComponent<CharacterController>();
 	}
@@ -64,40 +70,63 @@ public class Robot : MonoBehaviour {
 	
 	public void IncreaseHappyness(){
 		IncreaseHappyness(increaseSteps);
+<<<<<<< HEAD
+=======
+		// later we do some graphic changes here
+>>>>>>> arda
 	}
 	
 	public void DecreaseHappyness(){
 		Debug.Log("Decreas Happyness");
 		DecreaseHappyness(increaseSteps);
+<<<<<<< HEAD
 		
+=======
+		// later we do some graphic changes here
+>>>>>>> arda
 	}
 	
 	public void IncreaseHappyness(float changeValue){
 		IncreaseSpeed(changeValue);
+<<<<<<< HEAD
 		checkEmotionState();
+=======
+>>>>>>> arda
 	}
 	
 	public void DecreaseHappyness(float changeValue){
 		DecreaseSpeed(changeValue);
+<<<<<<< HEAD
 		checkEmotionState();
+=======
+>>>>>>> arda
 	}
 	
 	private void IncreaseSpeed(float difference){
 		currentSpeed += difference;
 		if(currentSpeed >= maxSpeed)
 			currentSpeed = maxSpeed;
+<<<<<<< HEAD
 		
+=======
+		checkEmotionState();
+>>>>>>> arda
 	}
 	
 	private void DecreaseSpeed(float difference){
 		currentSpeed -= difference;
 		if(currentSpeed <= minSpeed)
 			currentSpeed = minSpeed;
+<<<<<<< HEAD
 		
+=======
+		checkEmotionState();
+>>>>>>> arda
 	}
 	
 	private void checkEmotionState(){
 		// Just a Dummy
+<<<<<<< HEAD
 		currentState = GameWorld.Instance.Emotions.GetState(currentSpeed);
 		Debug.Log("currentState: " + currentState);
 		if(lastState != currentState){
@@ -115,6 +144,8 @@ public class Robot : MonoBehaviour {
 		}
 		
 		
+=======
+>>>>>>> arda
 	}
 	
 }
