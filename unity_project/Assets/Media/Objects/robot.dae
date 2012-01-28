@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.60.0 r41226</authoring_tool>
     </contributor>
-    <created>2012-01-28T16:49:34</created>
-    <modified>2012-01-28T16:49:34</modified>
+    <created>2012-01-28T19:26:19</created>
+    <modified>2012-01-28T19:26:19</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -39,7 +39,7 @@
           </technique_common>
         </source>
         <source id="Plane-mesh-map-0">
-          <float_array id="Plane-mesh-map-0-array" count="8">0.767454 0.9994264 0.004110693 1.000573 0.003068089 5.73516e-4 0.7664116 -5.7292e-4</float_array>
+          <float_array id="Plane-mesh-map-0-array" count="8">0.1367138 1.000097 -2.24773e-4 1.000238 -2.62022e-4 0.8539558 0.1366767 0.8541498</float_array>
           <technique_common>
             <accessor source="#Plane-mesh-map-0-array" count="4" stride="2">
               <param name="S" type="float"/>

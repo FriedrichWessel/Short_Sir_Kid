@@ -19,6 +19,8 @@ public class Robot : MonoBehaviour {
 	private bool tumbling = false;
 	private bool startJump = false;
 	private bool jumping = false;
+	private AnimatedUVBehaviour movieTexture;
+	private int standardFrameRate;
 	
 	
 	public bool AfterTumbling{
@@ -54,6 +56,9 @@ public class Robot : MonoBehaviour {
 		AfterTumbling = false;
 		afterTumblingSpeedUp = GameWorld.Instance.AfterTumblingSpeedUp;
 		jumping = false;
+		movieTexture = gameObject.GetComponent<AnimatedUVBehaviour>() as AnimatedUVBehaviour;
+		standardFrameRate = movieTexture.MovieSpeedFPS;
+		
 		
 		
 		charControler = GetComponent<CharacterController>();
@@ -149,6 +154,15 @@ public class Robot : MonoBehaviour {
 		currentSpeed += difference;
 		if(currentSpeed >= maxSpeed)
 			currentSpeed = maxSpeed;
+		// calculate animation Playback speed
+		var diff = (currentSpeed - generalMoveSpeed)*0.1f ;
+		diff += 1;
+		Debug.Log("Diff: " + diff);
+		Debug.Log("StandardRate: " + standardFrameRate);
+		float value = standardFrameRate * diff ;
+		Debug.Log("Value: "+ value);
+		movieTexture.MovieSpeedFPS = (int)value;
+		Debug.Log("Speed: " + movieTexture.MovieSpeedFPS);
 		
 	}
 	
