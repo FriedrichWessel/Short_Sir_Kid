@@ -48,8 +48,11 @@ public class GameWorld : MonoBehaviour {
 	}
 	
 	public void GameEnd(bool winGame){
-		// Dummy in the moment
-		Application.LoadLevel("EndScreen");
+		if(!winGame){ // just start all over again
+			Debug.Log("YouSuck!");
+			Application.LoadLevel(0);
+		} else 
+			Application.LoadLevel("EndScreen");
 	}
 	
 }

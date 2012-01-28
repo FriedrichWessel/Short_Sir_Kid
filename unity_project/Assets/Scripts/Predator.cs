@@ -19,11 +19,8 @@ public class Predator : MonoBehaviour {
 	}
 	
 	void OnTriggerEnter( Collider obj ) {
-		// here enum checks
 		if (obj.gameObject.tag == "Player") {
-			Debug.Log("YouSuck!");
-			//Time.timeScale = 0;
-			Application.LoadLevel(0);
+			GameWorld.Instance.GameEnd(false);
 		}
 	}
 	
