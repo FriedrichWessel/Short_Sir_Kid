@@ -13,7 +13,7 @@ public class Burstable : MonoBehaviour {
 
 	public void OnTriggerEnter( Collider obj ) {
 		if( obj.gameObject.tag == "Player" ) {
-			robot.IncreaseHappyness(increasePercentage);
+			robot.IncreaseHappyness(GameWorld.Instance.BurstSlowDownStep);
 		}
 		// play destroy animation
 	}

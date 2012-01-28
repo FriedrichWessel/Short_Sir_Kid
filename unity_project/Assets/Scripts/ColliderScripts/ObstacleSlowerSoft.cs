@@ -13,7 +13,7 @@ public class ObstacleSlowerSoft : MonoBehaviour {
 
 	public void OnTriggerEnter( Collider obj ) {
 		if( obj.gameObject.tag == "Player" ) {
-			robot.DecreaseHappyness(decreasePercentage);
+			robot.DecreaseHappyness(GameWorld.Instance.SoftStopperStep);
 		}
 	}
 	

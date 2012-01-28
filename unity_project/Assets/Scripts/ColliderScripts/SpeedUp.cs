@@ -13,7 +13,7 @@ public class SpeedUp : MonoBehaviour {
 
 	public void OnTriggerEnter( Collider obj ) {
 		if( obj.gameObject.tag == "Player" ) {
-			robot.IncreaseHappyness(increasePercentage);
+			robot.IncreaseHappyness(GameWorld.Instance.SpeedUpStep);
 		}
 		// play sound or etc
 	}

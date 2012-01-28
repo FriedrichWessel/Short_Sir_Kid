@@ -18,6 +18,10 @@ public class GameWorld : MonoBehaviour {
 	public float MaxSpeed = 20;
 	public float PredatorSpeed = 5;
 	public float PredatorMaxDistance = 1;
+	public float HardStopperStep = 4;
+	public float SoftStopperStep = 2;
+	public float SpeedUpStep = 4;
+	public float BurstSlowDownStep = 0.5f;
 	
 	
 	
