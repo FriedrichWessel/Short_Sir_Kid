@@ -11,6 +11,11 @@ public class Robot : MonoBehaviour {
 	private float maxSpeed; 
 	private float minSpeed;
 	
+	public EmotionStates.States currentState{
+		get;
+		private set;
+	} 
+	private EmotionStates.States lastState;
 	private CharacterController charControler;
 	
 	private Vector3 currentDirection;
@@ -26,6 +31,8 @@ public class Robot : MonoBehaviour {
 		increaseSteps = GameWorld.Instance.SpeedStep;
 		minSpeed = GameWorld.Instance.MinSpeed;
 		maxSpeed = GameWorld.Instance.MaxSpeed;
+		currentState = GameWorld.Instance.Emotions.GetState(currentSpeed);
+		lastState = currentState;
 		
 		charControler = GetComponent<CharacterController>();
 	}
@@ -57,39 +64,57 @@ public class Robot : MonoBehaviour {
 	
 	public void IncreaseHappyness(){
 		IncreaseHappyness(increaseSteps);
-		// later we do some graphic changes here
 	}
 	
 	public void DecreaseHappyness(){
 		Debug.Log("Decreas Happyness");
 		DecreaseHappyness(increaseSteps);
-		// later we do some graphic changes here
+		
 	}
 	
 	public void IncreaseHappyness(float changeValue){
 		IncreaseSpeed(changeValue);
+		checkEmotionState();
 	}
 	
 	public void DecreaseHappyness(float changeValue){
 		DecreaseSpeed(changeValue);
+		checkEmotionState();
 	}
 	
 	private void IncreaseSpeed(float difference){
 		currentSpeed += difference;
 		if(currentSpeed >= maxSpeed)
 			currentSpeed = maxSpeed;
-		checkEmotionState();
+		
 	}
 	
 	private void DecreaseSpeed(float difference){
 		currentSpeed -= difference;
 		if(currentSpeed <= minSpeed)
 			currentSpeed = minSpeed;
-		checkEmotionState();
+		
 	}
 	
 	private void checkEmotionState(){
 		// Just a Dummy
+		currentState = GameWorld.Instance.Emotions.GetState(currentSpeed);
+		Debug.Log("currentState: " + currentState);
+		if(lastState != currentState){
+			if(currentState == EmotionStates.States.TooFast){
+				Debug.Log("Reached To Fast");
+				IncreaseSpeed(maxSpeed);
+				// Do Graphic Changes here
+			} else if(currentState == EmotionStates.States.TooSlow){
+				Debug.Log("Reached Too Slow");
+				DecreaseSpeed(maxSpeed);
+				// Do Graphic Changes here
+			}
+				
+			lastState = currentState ;	
+		}
+		
+		
 	}
 	
 }

@@ -11,6 +11,10 @@ public class ControllerInput : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(robot.currentState == EmotionStates.States.TooFast){
+				// Can do some stuff here for not react
+		}
+		
 		if(Input.GetAxis("jump") != 0.0f){
 			robot.Jump();
 		}

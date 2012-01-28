@@ -1,16 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ColliderScripts\SpeedUp.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ColliderScripts\FinishLine.cs">
     <Files>
-      <File FileName="Assets\Scripts\ColliderScripts\Hazard.cs" Line="13" Column="37" />
-      <File FileName="Assets\Scripts\ColliderScripts\SpeedUp.cs" Line="15" Column="37" />
-      <File FileName="Assets\Scripts\ColliderScripts\Burstable.cs" Line="15" Column="37" />
-      <File FileName="Assets\Scripts\ColliderScripts\ObstacleSlowerSoft.cs" Line="15" Column="37" />
-      <File FileName="Assets\Scripts\ColliderScripts\ObstacleSlowerHard.cs" Line="15" Column="37" />
-      <File FileName="Assets\Scripts\ColliderScripts\ObstacleStopper.cs" Line="15" Column="37" />
-      <File FileName="Assets\Scripts\ColliderScript.cs" Line="29" Column="7" />
-      <File FileName="Assets\Scripts\Robot.cs" Line="65" Column="36" />
-      <File FileName="Assets\Scripts\GameWorld.cs" Line="6" Column="35" />
+      <File FileName="Assets\Scripts\ColliderScripts\FinishLine.cs" Line="15" Column="29" />
+      <File FileName="Assets\Scripts\ColliderScripts\Hazard.cs" Line="6" Column="2" />
+      <File FileName="Assets\Scripts\Predator.cs" Line="26" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
