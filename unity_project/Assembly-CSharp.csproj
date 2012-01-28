@@ -55,12 +55,18 @@
      <Compile Include="Assets\Scripts\ColliderScripts\SpeedUp.cs" />
      <Compile Include="Assets\Scripts\ControllerInput.cs" />
      <Compile Include="Assets\Scripts\EmotionStates.cs" />
-     <Compile Include="Assets\Scripts\EnvironmentScript.cs" />
      <Compile Include="Assets\Scripts\GameWorld.cs" />
      <Compile Include="Assets\Scripts\HideOnPlay.cs" />
      <Compile Include="Assets\Scripts\Predator.cs" />
      <Compile Include="Assets\Scripts\Robot.cs" />
      <Compile Include="Assets\Scripts\UVMoveBehaviour.cs" />
+     <None Include="Assets\Standard Assets\Detonator\Resources\Detonator\Textures\HeatDistort.shader" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{89E40A3E-5086-C4C7-05D0-974E1AFE9663}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
+      <Project>{F9EE35A7-DB8E-FF0B-13DC-DC9FDCD5975F}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

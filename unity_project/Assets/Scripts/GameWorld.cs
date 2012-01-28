@@ -26,7 +26,8 @@ public class GameWorld : MonoBehaviour {
 	public float AfterTumblingSpeedUp = 1;
 	public float TumbleTime = 2;
 	
-	
+	private bool waitForGameEnd = false;
+	private float timeTillGameEnd = 10;
 	
 	private float runningTime = 0.0f;
 	
@@ -49,6 +50,12 @@ public class GameWorld : MonoBehaviour {
 	}
 	
 	void Update(){
+		if(waitForGameEnd){
+			timeTillGameEnd -= Time.deltaTime;
+		}
+		if(timeTillGameEnd <= 0)
+			GameEnd(false, 0);
+		
 		if(runningTime >= CheerUpTime){
 
 			//Debug.Log("Increase Happyness");
@@ -64,10 +71,19 @@ public class GameWorld : MonoBehaviour {
 			pos.x -= PredatorMaxDistance;
 			PredatorEntity.transform.position = pos;
 		}
+		
 			
 	}
 	
 	public void GameEnd(bool winGame){
+		GameEnd(winGame, 0);
+	}
+	public void GameEnd(bool winGame, float time){
+		if(time > 0){
+			waitForGameEnd = true;
+			timeTillGameEnd = time;
+			return;
+		}
 		if(!winGame){ // just start all over again
 			Debug.Log("YouSuck!");
 			Application.LoadLevel(0);

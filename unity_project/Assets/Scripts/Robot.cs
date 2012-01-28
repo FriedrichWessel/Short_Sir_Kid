@@ -81,7 +81,7 @@ public class Robot : MonoBehaviour {
 		} 
 		else {
 			if(!charControler.isGrounded && startJump){
-				Debug.Log("start Jump");
+				//Debug.Log("start Jump");
 				jumping = true;
 				startJump = false;
 			} else if(charControler.isGrounded && jumping){
@@ -157,12 +157,11 @@ public class Robot : MonoBehaviour {
 		// calculate animation Playback speed
 		var diff = (currentSpeed - generalMoveSpeed)*0.1f ;
 		diff += 1;
-		Debug.Log("Diff: " + diff);
-		Debug.Log("StandardRate: " + standardFrameRate);
+		
 		float value = standardFrameRate * diff ;
-		Debug.Log("Value: "+ value);
+		
 		movieTexture.MovieSpeedFPS = (int)value;
-		Debug.Log("Speed: " + movieTexture.MovieSpeedFPS);
+		
 		
 	}
 	

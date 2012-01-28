@@ -10,8 +10,14 @@ public class Hazard : MonoBehaviour {
 	}
 
 	public void OnTriggerEnter( Collider obj ) {
+		
 		if( obj.gameObject.tag == "Player" ) {
-			GameWorld.Instance.GameEnd(false);
+			gameObject.renderer.enabled = false;
+			GameWorld.Instance.GameEnd(false, 0.5f);
+			GameWorld.Instance.RobotEntity.Tumble(3);
+			Detonator boom = gameObject.GetComponentInChildren<Detonator>() as Detonator;
+			if(boom != null)
+				boom.Explode();
 		}
 	}
 	
