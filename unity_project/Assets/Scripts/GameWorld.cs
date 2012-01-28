@@ -11,11 +11,14 @@ public class GameWorld : MonoBehaviour {
 	public Robot RobotEntity;
 	public Predator PredatorEntity;
 	public float CheerUpTime = 0.1f;
-	public float SpeedStep = 0.1f;
+	public float SpeedIncreaseStep = 0.1f;
+	public float BrakeCoolDownTime = 1;
+	public float SpeedDecreaseStep = 2;
 	public float MinSpeed = 1;
 	public float MaxSpeed = 20;
 	public float PredatorSpeed = 5;
 	public float PredatorMaxDistance = 1;
+	
 	
 	
 	private float runningTime = 0.0f;
@@ -49,7 +52,8 @@ public class GameWorld : MonoBehaviour {
 		Debug.Log("Distance: " + (RobotEntity.transform.position.x -  PredatorEntity.transform.position.x));
 		if(RobotEntity.transform.position.x -  PredatorEntity.transform.position.x > PredatorMaxDistance){
 			Debug.Log("Predator Pulled");
-			var pos = RobotEntity.transform.position;
+			var pos = PredatorEntity.transform.position;
+			pos.x = RobotEntity.transform.position.x;
 			pos.x -= PredatorMaxDistance;
 			PredatorEntity.transform.position = pos;
 		}

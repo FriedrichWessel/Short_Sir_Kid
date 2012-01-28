@@ -8,6 +8,7 @@ public class Robot : MonoBehaviour {
 	private float jumpHeight;
 	private float gravity;
 	private float increaseSteps;
+	private float decreaseSteps;
 	private float maxSpeed; 
 	private float minSpeed;
 	
@@ -28,7 +29,8 @@ public class Robot : MonoBehaviour {
 		currentDirection = new Vector3(generalMoveSpeed,0,0);
 		gravity = GameWorld.Instance.Gravity;
 		currentSpeed = generalMoveSpeed;
-		increaseSteps = GameWorld.Instance.SpeedStep;
+		increaseSteps = GameWorld.Instance.SpeedIncreaseStep;
+		decreaseSteps = GameWorld.Instance.SpeedDecreaseStep;
 		minSpeed = GameWorld.Instance.MinSpeed;
 		maxSpeed = GameWorld.Instance.MaxSpeed;
 		currentState = GameWorld.Instance.Emotions.GetState(currentSpeed);
@@ -68,7 +70,7 @@ public class Robot : MonoBehaviour {
 	
 	public void DecreaseHappyness(){
 		Debug.Log("Decreas Happyness");
-		DecreaseHappyness(increaseSteps);
+		DecreaseHappyness(decreaseSteps);
 		
 	}
 	

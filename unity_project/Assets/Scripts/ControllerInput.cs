@@ -4,9 +4,14 @@ using System.Collections;
 public class ControllerInput : MonoBehaviour {
 	
 	private Robot robot;
+	private float hitCooldown;
+	private float timeSinceLastHit;
+	
 	// Use this for initialization
 	void Start () {
 		robot = GameWorld.Instance.RobotEntity;
+		timeSinceLastHit = hitCooldown;
+		hitCooldown = GameWorld.Instance.BrakeCoolDownTime;
 	}
 	
 	// Update is called once per frame
@@ -19,7 +24,14 @@ public class ControllerInput : MonoBehaviour {
 			robot.Jump();
 		}
 		if(Input.GetAxis("hit") != 0.0f){
-			robot.DecreaseHappyness();
+			if(timeSinceLastHit < hitCooldown){
+				
+			} else {
+				robot.DecreaseHappyness();
+				timeSinceLastHit = 0;
+			}
+			
 		}
+		timeSinceLastHit += Time.deltaTime;
 	}
 }
