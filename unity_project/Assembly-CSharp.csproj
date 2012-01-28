@@ -46,6 +46,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\ColliderScript.cs" />
      <Compile Include="Assets\Scripts\ColliderScripts\Burstable.cs" />
+     <Compile Include="Assets\Scripts\ColliderScripts\FinishLine.cs" />
      <Compile Include="Assets\Scripts\ColliderScripts\Hazard.cs" />
      <Compile Include="Assets\Scripts\ColliderScripts\ObstacleSlowerHard.cs" />
      <Compile Include="Assets\Scripts\ColliderScripts\ObstacleSlowerSoft.cs" />
