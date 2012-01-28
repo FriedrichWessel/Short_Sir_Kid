@@ -37,10 +37,17 @@
     <Reference Include="System.XML" />
 	<Reference Include="System.Core" />
 	<Reference Include="UnityEngine">
+<<<<<<< HEAD
 	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
 	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+=======
+	  <HintPath>C:/Program Files (x86)/Unity/Unity3.5BETA/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	</Reference>
+	<Reference Include="UnityEditor">
+	  <HintPath>C:/Program Files (x86)/Unity/Unity3.5BETA/Editor/Data/Managed/UnityEditor.dll</HintPath>
+>>>>>>> cordi
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -56,6 +63,10 @@
      <Compile Include="Assets\Scripts\EmotionStates.cs" />
      <Compile Include="Assets\Scripts\EnvironmentScript.cs" />
      <Compile Include="Assets\Scripts\GameWorld.cs" />
+<<<<<<< HEAD
+=======
+     <Compile Include="Assets\Scripts\HideOnPlay.cs" />
+>>>>>>> cordi
      <Compile Include="Assets\Scripts\Predator.cs" />
      <Compile Include="Assets\Scripts\Robot.cs" />
   </ItemGroup>
