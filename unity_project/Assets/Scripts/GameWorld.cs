@@ -35,4 +35,8 @@ public class GameWorld : MonoBehaviour {
 			
 	}
 	
+	public void GameEnd(){
+		Application.LoadLevel("EndScreen");
+	}
+	
 }
