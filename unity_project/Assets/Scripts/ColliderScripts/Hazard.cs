@@ -12,7 +12,8 @@ public class Hazard : MonoBehaviour {
 	public void OnTriggerEnter( Collider obj ) {
 		
 		if( obj.gameObject.tag == "Player" ) {
-			gameObject.renderer.enabled = false;
+			if(gameObject.renderer != null)
+				gameObject.renderer.enabled = false;
 			GameWorld.Instance.GameEnd(false, 0.5f);
 			GameWorld.Instance.RobotEntity.Tumble(3);
 			Detonator boom = gameObject.GetComponentInChildren<Detonator>() as Detonator;

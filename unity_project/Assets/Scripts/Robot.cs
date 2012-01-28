@@ -114,17 +114,22 @@ public class Robot : MonoBehaviour {
 		
 	}
 	
-	public void Jump(){
+	public void Jump(float height){
 		if(charControler.isGrounded){
 			//Debug.Log("jump");
-			currentDirection.y =  jumpHeight;
+			currentDirection.y =  height;
 			startJump = true;
 			//jumping = true;
 		}
+	}
+	public void Jump(){
+		Jump(jumpHeight);
 			
 	}
 	
 	public void Hit(){
+		if(!charControler.isGrounded)
+			return;
 		if(GameWorld.Instance.Emotions.GetState(currentSpeed) == EmotionStates.States.TooFast)
 			currentSpeed = GameWorld.Instance.Emotions.GetStateSpeed(EmotionStates.States.TooSlow);
 		else 

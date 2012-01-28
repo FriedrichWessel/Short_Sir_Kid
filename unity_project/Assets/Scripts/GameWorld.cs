@@ -25,11 +25,14 @@ public class GameWorld : MonoBehaviour {
 	public float BurstSlowDownStep = 0.5f;
 	public float AfterTumblingSpeedUp = 1;
 	public float TumbleTime = 2;
-	
+	public float PossibilityToJumpWhenCrazy = 10;
+	public float PossibilityToStopWhenCrazy = 10;
+	public float PossibilityNotToJumpWhenCrazy = 10;
 	private bool waitForGameEnd = false;
 	private float timeTillGameEnd = 10;
 	
 	private float runningTime = 0.0f;
+	
 	
 	
 	public EmotionStates Emotions{
