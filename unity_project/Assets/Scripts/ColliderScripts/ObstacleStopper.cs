@@ -2,8 +2,6 @@ using UnityEngine;
 using System.Collections;
 
 public class ObstacleStopper : MonoBehaviour {
-	
-	public int decreasePercentage = 90;
 
 	private Robot robot;
 	
@@ -14,7 +12,7 @@ public class ObstacleStopper : MonoBehaviour {
 	public void OnTriggerEnter( Collider obj ) {
 		if( obj.gameObject.tag == "Player" ) {
 			robot.Tumble(GameWorld.Instance.TumbleTime);
-			robot.DecreaseHappyness(GameWorld.Instance.MaxSpeed);
+			//robot.DecreaseHappyness(GameWorld.Instance.MaxSpeed);
 		}
 	}
 	
