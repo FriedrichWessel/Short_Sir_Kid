@@ -44,15 +44,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-     <Compile Include="Assets\PlatformScript.cs" />
-     <Compile Include="Assets\Scripts\ColliderScript.cs" />
-     <Compile Include="Assets\Scripts\ControllerInput.cs" />
-     <Compile Include="Assets\Scripts\EmotionStates.cs" />
-     <Compile Include="Assets\Scripts\EnvironmentScript.cs" />
-     <Compile Include="Assets\Scripts\GameWorld.cs" />
-     <Compile Include="Assets\Scripts\Predator.cs" />
-=======
      <Compile Include="Assets\Scripts\ColliderScript.cs" />
      <Compile Include="Assets\Scripts\ColliderScripts\Burstable.cs" />
      <Compile Include="Assets\Scripts\ColliderScripts\Hazard.cs" />
@@ -61,8 +52,10 @@
      <Compile Include="Assets\Scripts\ColliderScripts\ObstacleStopper.cs" />
      <Compile Include="Assets\Scripts\ColliderScripts\SpeedUp.cs" />
      <Compile Include="Assets\Scripts\ControllerInput.cs" />
+     <Compile Include="Assets\Scripts\EmotionStates.cs" />
+     <Compile Include="Assets\Scripts\EnvironmentScript.cs" />
      <Compile Include="Assets\Scripts\GameWorld.cs" />
->>>>>>> arda
+     <Compile Include="Assets\Scripts\Predator.cs" />
      <Compile Include="Assets\Scripts\Robot.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
