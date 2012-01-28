@@ -44,7 +44,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
      <Compile Include="Assets\Scripts\CameraScript.cs" />
+=======
+>>>>>>> cordi
      <Compile Include="Assets\Scripts\ColliderScripts\Burstable.cs" />
      <Compile Include="Assets\Scripts\ColliderScripts\FinishLine.cs" />
      <Compile Include="Assets\Scripts\ColliderScripts\Hazard.cs" />
