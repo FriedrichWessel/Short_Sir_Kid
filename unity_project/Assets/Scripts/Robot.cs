@@ -7,6 +7,7 @@ public class Robot : MonoBehaviour {
 	private float currentSpeed;
 	private float jumpHeight;
 	private float gravity;
+	private float jumpingGravity;
 	private float increaseSteps;
 	private float decreaseSteps;
 	private float maxSpeed; 
@@ -16,6 +17,9 @@ public class Robot : MonoBehaviour {
 	private float targetTumbleTime;
 	private float timeTumbling;
 	private bool tumbling = false;
+	private bool startJump = false;
+	private bool jumping = false;
+	
 	
 	public bool AfterTumbling{
 		get;
@@ -37,6 +41,7 @@ public class Robot : MonoBehaviour {
 		jumpHeight = GameWorld.Instance.JumpHeight;
 		currentDirection = new Vector3(generalMoveSpeed,0,0);
 		gravity = GameWorld.Instance.Gravity;
+		jumpingGravity = GameWorld.Instance.JumpGravity;
 		currentSpeed = generalMoveSpeed;
 		increaseSteps = GameWorld.Instance.SpeedIncreaseStep;
 		decreaseSteps = GameWorld.Instance.SpeedDecreaseStep;
@@ -48,6 +53,8 @@ public class Robot : MonoBehaviour {
 		lastState = currentState;
 		AfterTumbling = false;
 		afterTumblingSpeedUp = GameWorld.Instance.AfterTumblingSpeedUp;
+		jumping = false;
+		
 		
 		charControler = GetComponent<CharacterController>();
 	}
@@ -68,6 +75,14 @@ public class Robot : MonoBehaviour {
 				AfterTumbling = false;
 		} 
 		else {
+			if(!charControler.isGrounded && startJump){
+				Debug.Log("start Jump");
+				jumping = true;
+				startJump = false;
+			} else if(charControler.isGrounded && jumping){
+				jumping = false;
+			}
+				
 			calculateDirection();
 			move(currentDirection);	
 		}
@@ -76,7 +91,13 @@ public class Robot : MonoBehaviour {
 	
 	private void calculateDirection(){
 		currentDirection.x = currentSpeed;
-		currentDirection.y -= gravity * Time.deltaTime;
+		if(jumping){
+			//Debug.Log("Jump Gravity");
+			currentDirection.y -= jumpingGravity * Time.deltaTime;
+		}else {
+			//Debug.Log("normal Grav");
+			currentDirection.y -= gravity * Time.deltaTime;
+		}
 	}
 	
 	private void move(Vector3 direction){
@@ -89,8 +110,13 @@ public class Robot : MonoBehaviour {
 	}
 	
 	public void Jump(){
-		if(charControler.isGrounded)
+		if(charControler.isGrounded){
+			//Debug.Log("jump");
 			currentDirection.y =  jumpHeight;
+			startJump = true;
+			//jumping = true;
+		}
+			
 	}
 	
 	public void Hit(){

@@ -8,6 +8,7 @@ public class GameWorld : MonoBehaviour {
 	public float MoveSpeed = 0.1f;
 	public float JumpHeight = 7.0f;
 	public float Gravity = 9.8f; 
+	public float JumpGravity = 9.8f;
 	public Robot RobotEntity;
 	public Predator PredatorEntity;
 	public float CheerUpTime = 0.1f;
