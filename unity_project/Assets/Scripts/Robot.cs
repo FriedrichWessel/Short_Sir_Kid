@@ -92,10 +92,10 @@ public class Robot : MonoBehaviour {
 	private void calculateDirection(){
 		currentDirection.x = currentSpeed;
 		if(jumping){
-			//Debug.Log("Jump Gravity");
+			Debug.Log("Jump Gravity");
 			currentDirection.y -= jumpingGravity * Time.deltaTime;
 		}else {
-			//Debug.Log("normal Grav");
+			Debug.Log("normal Grav");
 			currentDirection.y -= gravity * Time.deltaTime;
 		}
 	}
