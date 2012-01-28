@@ -12,7 +12,9 @@ public class ObstacleStopper : MonoBehaviour {
 	}
 
 	public void OnTriggerEnter( Collider obj ) {
+		Debug.Log("Stopper");
 		if( obj.gameObject.tag == "Player" ) {
+			robot.Tumble(GameWorld.Instance.TumbleTime);
 			robot.DecreaseHappyness(GameWorld.Instance.MaxSpeed);
 		}
 	}

@@ -44,7 +44,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ColliderScript.cs" />
      <Compile Include="Assets\Scripts\ColliderScripts\Burstable.cs" />
      <Compile Include="Assets\Scripts\ColliderScripts\FinishLine.cs" />
      <Compile Include="Assets\Scripts\ColliderScripts\Hazard.cs" />
@@ -57,6 +56,8 @@
      <Compile Include="Assets\Scripts\EnvironmentScript.cs" />
      <Compile Include="Assets\Scripts\GameWorld.cs" />
      <Compile Include="Assets\Scripts\HideOnPlay.cs" />
+     <Compile Include="Assets\Scripts\PlatformMover.cs" />
+     <Compile Include="Assets\Scripts\PlatformTrigger.cs" />
      <Compile Include="Assets\Scripts\Predator.cs" />
      <Compile Include="Assets\Scripts\Robot.cs" />
   </ItemGroup>
