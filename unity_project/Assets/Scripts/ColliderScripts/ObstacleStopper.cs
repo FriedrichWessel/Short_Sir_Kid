@@ -14,6 +14,9 @@ public class ObstacleStopper : MonoBehaviour {
 		if( obj.gameObject.tag == "Player" ) {
 			robot.Tumble(GameWorld.Instance.TumbleTime);
 			//robot.DecreaseHappyness(GameWorld.Instance.MaxSpeed);
+			var sound = gameObject.GetComponent<AudioSource>() as AudioSource;
+			if(sound != null)
+				sound.Play();
 		}
 	}
 	

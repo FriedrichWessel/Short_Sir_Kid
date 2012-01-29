@@ -31,8 +31,13 @@ public class GameWorld : MonoBehaviour {
 	public float PossibilityNotToJumpWhenCrazy = 10;
 	public int LoadLevelFail = 0;
 	public int LoadLevelWin = 1;
+	public AudioClip StartGameSound;
+	public AudioClip WinGameSound;
+	public AudioClip LooseGameSound;
 	private bool waitForGameEnd = false;
 	private float timeTillGameEnd = 10;
+	private AudioSource sound;
+	
 	
 	private float runningTime = 0.0f;
 	private float colorValue;
@@ -55,10 +60,25 @@ public class GameWorld : MonoBehaviour {
 
 		Emotions= new EmotionStates();
 		colorValue = RenderSettings.ambientLight.r;
+		sound = gameObject.GetComponent<AudioSource>() as AudioSource;
 
 	}
 	
+	void Start(){
+		if(StartGameSound != null){
+			sound.clip = StartGameSound;
+			sound.Play();
+		}
+	}
+	
 	void Update(){
+		//Debug.Log(Input.GetAxis("cancel"));
+		if(Input.GetAxis("cancel") != 0){
+			Debug.Log("cancel");
+			Application.Quit();
+		}
+			
+		
 		if(waitForGameEnd){
 			timeTillGameEnd -= Time.deltaTime;
 			
@@ -103,13 +123,29 @@ public class GameWorld : MonoBehaviour {
 			waitForGameEnd = true;
 			timeTillGameEnd = time;
 			savedWin = winGame;
+			if(!winGame){
+				if(LooseGameSound != null){
+					sound.clip = LooseGameSound;
+					sound.Play();
+				}
+			} else{
+				if(WinGameSound != null){
+					sound.clip = WinGameSound;
+					sound.Play();	
+				}
+			}
 			return;
 		}
 		if(!winGame){ // just start all over again
-			Debug.Log("YouSuck!");
+			//Debug.Log("YouSuck!");
 			Application.LoadLevel(LoadLevelFail);
-		} else 
+			
+			
+		} else {
+			
 			Application.LoadLevel(LoadLevelWin);
+		}
+			
 	}
 	
 }

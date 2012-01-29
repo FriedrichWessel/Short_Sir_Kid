@@ -6,10 +6,10 @@ public class Predator : MonoBehaviour {
 	
 	private float moveSpeed;
 	
-	
 	// Use this for initialization
 	void Start () {
 		moveSpeed = GameWorld.Instance.PredatorSpeed;
+		
 	}
 	
 	// Update is called once per frame

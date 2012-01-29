@@ -90,6 +90,8 @@
      <Compile Include="Assets\Scripts\General\TimeBehaviour.cs" />
      <Compile Include="Assets\Scripts\General\Timer.cs" />
      <Compile Include="Assets\Scripts\HideOnPlay.cs" />
+     <Compile Include="Assets\Scripts\PlatformMover.cs" />
+     <Compile Include="Assets\Scripts\PlatformTrigger.cs" />
      <Compile Include="Assets\Scripts\Predator.cs" />
      <Compile Include="Assets\Scripts\ResourceManager\ResourceLoadingBehaviour.cs" />
      <Compile Include="Assets\Scripts\ResourceManager\ResourceManager.cs" />

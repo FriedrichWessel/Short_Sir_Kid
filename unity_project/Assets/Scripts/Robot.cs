@@ -27,6 +27,19 @@ public class Robot : MonoBehaviour {
 	public Texture2D normalTexture;
 	public Texture2D crazyTexture;
 	
+	public AudioClip ChangeToTooSlow;
+	public AudioClip ChangeToTooNormal;
+	public AudioClip ChangeToTooFast;
+	public AudioClip HitSound;
+	public AudioClip CrazyJump;
+	public AudioClip JumpSound;
+	public AudioClip DieSound;
+	public AudioClip HitTheGround;
+	
+	private AudioSource sound;
+	
+	
+	
 	public Texture2D HitTexture;
 	
 	private bool duringHit = false;
@@ -81,6 +94,8 @@ public class Robot : MonoBehaviour {
 		movieTexture.Textures[0] = sadTexture;
 		movieTexture.ReloadTexture();
 		
+		sound = gameObject.GetComponent<AudioSource>() as AudioSource;
+		
 		Torso.gameObject.renderer.enabled = false;
 		Leg1.gameObject.renderer.enabled = false;
 		Leg2.gameObject.renderer.enabled = false;
@@ -115,6 +130,10 @@ public class Robot : MonoBehaviour {
 				startJump = false;
 			} else if(charControler.isGrounded && jumping){
 				jumping = false;
+				if(HitTheGround != null){
+					sound.clip = HitTheGround;
+					sound.Play();
+				}
 			} else if(jumping){
 				movieTexture.MovieSpeedFPS = 0;
 			}
@@ -207,6 +226,17 @@ public class Robot : MonoBehaviour {
 			currentDirection.y =  height;
 			startJump = true;
 			movieTexture.MovieSpeedFPS = 0;
+			if(currentState == EmotionStates.States.TooFast){
+				if(CrazyJump != null){
+					sound.clip = CrazyJump;
+					sound.Play();
+				}
+			} else {
+				if(JumpSound != null){
+					sound.clip =  JumpSound;
+					sound.Play();
+				}
+			}
 			
 			//jumping = true;
 		}
@@ -219,6 +249,11 @@ public class Robot : MonoBehaviour {
 	public void Hit(){
 		if(!charControler.isGrounded)
 			return;
+		if(HitSound != null){
+			sound.clip =  HitSound;
+			sound.Play();	
+		}
+		
 		if(GameWorld.Instance.Emotions.GetState(currentSpeed) == EmotionStates.States.TooFast)
 			currentSpeed = GameWorld.Instance.Emotions.GetStateSpeed(EmotionStates.States.TooSlow);
 		else 
@@ -285,6 +320,11 @@ public class Robot : MonoBehaviour {
 				Debug.Log("Reached To Fast");
 				IncreaseSpeed(maxSpeed);
 				// Do Graphic Changes here
+				if(ChangeToTooFast != null){
+					sound.clip =  ChangeToTooFast;
+					sound.Play();	
+				}
+				
 				if(!duringHit){
 					movieTexture.Textures[0] = crazyTexture;
 					movieTexture.ReloadTexture();	
@@ -293,12 +333,20 @@ public class Robot : MonoBehaviour {
 			} else if(currentState == EmotionStates.States.TooSlow){
 				Debug.Log("Reached Too Slow");
 				DecreaseSpeed(maxSpeed);
+				if(ChangeToTooSlow != null){
+					sound.clip =  ChangeToTooSlow;
+					sound.Play();	
+				}
 				// Do Graphic Changes here
 				if(!duringHit){
 					movieTexture.Textures[0] = sadTexture;
 					movieTexture.ReloadTexture();
 				}
 			} else{
+				if(ChangeToTooNormal != null){
+					sound.clip =  ChangeToTooNormal;
+					sound.Play();	
+				}
 				if(!duringHit){
 					movieTexture.Textures[0] = normalTexture;
 					movieTexture.ReloadTexture();
@@ -313,6 +361,10 @@ public class Robot : MonoBehaviour {
 	
 	public void Die(){
 		var position = gameObject.transform.position;
+		if(DieSound != null){
+			sound.clip = DieSound;
+			sound.Play();
+		}
 		
 		Torso.gameObject.transform.position = position;
 		Head.gameObject.transform.position = position;
