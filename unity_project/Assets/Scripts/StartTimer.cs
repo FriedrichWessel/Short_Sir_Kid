@@ -2,9 +2,11 @@ using UnityEngine;
 using System.Collections;
 
 public class StartTimer : MonoBehaviour {
-
-
 	
+		public int LoadLevel = 0;
+
+
+		
 	// Use this for initialization
 	void Start () {
 		
@@ -13,6 +15,6 @@ public class StartTimer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetAxis("jump") != 0)
-			Application.LoadLevel(1);
+			Application.LoadLevel(LoadLevel);
 	}
 }
