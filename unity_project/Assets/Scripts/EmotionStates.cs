@@ -12,7 +12,7 @@ public class EmotionStates  {
 	
 	public float TooSlow = 40;
 	public float MiddleSlow = 60;
-	public float MiddleFast = 80;
+	public float MiddleFast = 70;
 	public float TooFast = 100;
 	
 	public EmotionStates(){

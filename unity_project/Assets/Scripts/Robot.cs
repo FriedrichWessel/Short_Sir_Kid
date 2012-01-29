@@ -21,6 +21,7 @@ public class Robot : MonoBehaviour {
 	private bool jumping = false;
 	private AnimatedUVBehaviour movieTexture;
 	private int standardFrameRate;
+	private Quaternion standardRotation;
 	
 	private Vector3 lastPosition;
 	public bool AfterTumbling{
@@ -59,6 +60,7 @@ public class Robot : MonoBehaviour {
 		movieTexture = gameObject.GetComponent<AnimatedUVBehaviour>() as AnimatedUVBehaviour;
 		standardFrameRate = movieTexture.MovieSpeedFPS;
 		lastPosition = currentDirection;
+		standardRotation = gameObject.transform.rotation;
 		
 		
 		
@@ -120,15 +122,32 @@ public class Robot : MonoBehaviour {
 		if(charControler != null){
 			charControler.Move(direction * Time.deltaTime);
 		}
-		if(currentState == EmotionStates.States.TooFast)
+		if(currentState == EmotionStates.States.TooFast){
 			GoCrazy();
+		}
+		else{// check for normal Rotation
+			var currentPosition = gameObject.transform.position;
+			Debug.Log("DirectionChange; " + (currentPosition.y - lastPosition.y));
+			if(currentPosition.y - lastPosition.y < 0 ){
+				//Debug.Log("Down");
+				if(charControler.isGrounded)
+					gameObject.transform.Rotate(0,0,60*Time.deltaTime);
+			} else if(currentPosition.y - lastPosition.y > 0 ){
+				//Debug.Log("Up");
+				if(charControler.isGrounded)
+					gameObject.transform.Rotate(0,0,-60*Time.deltaTime);
+			} else {
+				//Debug.Log("Normal");
+				gameObject.transform.rotation = standardRotation;
+			}		
+		}
 		
 		
 	}
 	
 	public void GoCrazy(){
 		var currentPosition = gameObject.transform.position;
-		Debug.Log("DirectionChange; " + (currentPosition.y - lastPosition.y));
+		//Debug.Log("DirectionChange; " + (currentPosition.y - lastPosition.y));
 		if(currentPosition.y - lastPosition.y < 0 ){
 			Debug.Log("Down");
 			gameObject.transform.Rotate(0,0,-10);

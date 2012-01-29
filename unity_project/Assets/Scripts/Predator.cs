@@ -20,7 +20,7 @@ public class Predator : MonoBehaviour {
 	
 	void OnTriggerEnter( Collider obj ) {
 		if (obj.gameObject.tag == "Player") {
-			GameWorld.Instance.GameEnd(false);
+			GameWorld.Instance.GameEnd(false,1.5f);
 		}
 	}
 	
