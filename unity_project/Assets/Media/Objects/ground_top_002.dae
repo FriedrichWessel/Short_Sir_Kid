@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.60.0 r41226</authoring_tool>
     </contributor>
-    <created>2012-01-28T23:41:49</created>
-    <modified>2012-01-28T23:41:49</modified>
+    <created>2012-01-28T23:49:22</created>
+    <modified>2012-01-28T23:49:22</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -168,7 +168,7 @@
     <geometry id="Plane_004-mesh">
       <mesh>
         <source id="Plane_004-mesh-positions">
-          <float_array id="Plane_004-mesh-positions-array" count="24">2.265626 0.005509316 0.05525821 2.265626 -1 0.05525839 -1.602662 -0.9999998 -0.02631276 -1.602662 0.005509734 -0.02631288 -1.586865 0.005509734 -0.3881207 -1.586865 -0.9999998 -0.3881205 2.281423 -1 -0.3065493 2.281423 0.005509316 -0.3065494</float_array>
+          <float_array id="Plane_004-mesh-positions-array" count="24">2.265626 0.005509316 0.05525821 2.265626 -1 0.05525839 -1.602662 -0.9999998 -0.02631276 -1.602662 0.005509734 -0.02631288 -1.595941 0.005509734 -0.1802334 -1.595942 -0.9999998 -0.1802332 2.272346 -1 -0.09866207 2.272346 0.005509316 -0.09866219</float_array>
           <technique_common>
             <accessor source="#Plane_004-mesh-positions-array" count="8" stride="3">
               <param name="X" type="float"/>
@@ -178,7 +178,7 @@
           </technique_common>
         </source>
         <source id="Plane_004-mesh-normals">
-          <float_array id="Plane_004-mesh-normals-array" count="18">-0.02108246 1.53207e-7 0.9997777 -0.9990482 4.65472e-7 -0.04361945 0 1 0 0.9990482 0 0.04361945 0 -1 0 0.02108246 -1.68528e-7 -0.9997777</float_array>
+          <float_array id="Plane_004-mesh-normals-array" count="18">-0.02108246 1.53207e-7 0.9997777 -0.9990482 4.66665e-7 -0.04361933 0 1 0 0.9990482 0 0.04361933 0 -1 0 0.02108246 -1.68528e-7 -0.9997777</float_array>
           <technique_common>
             <accessor source="#Plane_004-mesh-normals-array" count="6" stride="3">
               <param name="X" type="float"/>

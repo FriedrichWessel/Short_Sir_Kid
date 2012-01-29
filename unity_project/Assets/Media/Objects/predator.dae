@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.60.0 r41226</authoring_tool>
+    </contributor>
+    <created>2012-01-29T01:05:53</created>
+    <modified>2012-01-29T01:05:53</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_cameras/>
+  <library_lights/>
+  <library_images/>
+  <library_effects/>
+  <library_materials/>
+  <library_geometries>
+    <geometry id="Plane_007-mesh">
+      <mesh>
+        <source id="Plane_007-mesh-positions">
+          <float_array id="Plane_007-mesh-positions-array" count="12">-0.9961944 -0.9999998 -0.08715599 -0.9961948 0.5748025 -0.08715546 2.006287 0.5748028 0.1312575 2.006287 -1 0.1312569</float_array>
+          <technique_common>
+            <accessor source="#Plane_007-mesh-positions-array" count="4" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Plane_007-mesh-normals">
+          <float_array id="Plane_007-mesh-normals-array" count="3">-0.07255244 -3.64607e-7 0.9973646</float_array>
+          <technique_common>
+            <accessor source="#Plane_007-mesh-normals-array" count="1" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Plane_007-mesh-map-0">
+          <float_array id="Plane_007-mesh-map-0-array" count="8">-4.33624e-4 0.6729974 0.3240048 0.6728561 0.324042 0.9999558 -3.96729e-4 0.9997617</float_array>
+          <technique_common>
+            <accessor source="#Plane_007-mesh-map-0-array" count="4" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Plane_007-mesh-vertices">
+          <input semantic="POSITION" source="#Plane_007-mesh-positions"/>
+        </vertices>
+        <polylist count="1">
+          <input semantic="VERTEX" source="#Plane_007-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Plane_007-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Plane_007-mesh-map-0" offset="2" set="0"/>
+          <vcount>4 </vcount>
+          <p>0 0 0 3 0 1 2 0 2 1 0 3</p>
+        </polylist>
+      </mesh>
+      <extra><technique profile="MAYA"><double_sided>1</double_sided></technique></extra>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="predator" type="NODE">
+        <translate sid="location">0 0 2</translate>
+        <rotate sid="rotationZ">0 0 1 2.5</rotate>
+        <rotate sid="rotationY">0 1 0 0</rotate>
+        <rotate sid="rotationX">1 0 0 90</rotate>
+        <scale sid="scale">1 2 1</scale>
+        <instance_geometry url="#Plane_007-mesh"/>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

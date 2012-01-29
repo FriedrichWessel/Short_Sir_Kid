@@ -22,7 +22,7 @@ public class ControllerInput : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		bool crazy = (robot.currentState == EmotionStates.States.TooFast);
-		if(crazy){
+		/*if(crazy){
 				// Can do some stuff here for not react
 			var number = random.Next(0,100);
 			if(number <= GameWorld.Instance.PossibilityToJumpWhenCrazy){
@@ -34,15 +34,15 @@ public class ControllerInput : MonoBehaviour {
 				//Debug.Log("Crazy Tumble");
 				robot.Tumble(2);
 			}
-		}
+		}*/
 		
 		if(Input.GetAxis("jump") != 0.0f){
-			if(crazy){
+			/*if(crazy){
 				var number = random.Next(0,100);
 				if(number <= GameWorld.Instance.PossibilityNotToJumpWhenCrazy){
 					return;
 				}
-			}
+			}*/
 			robot.Jump();
 		}
 		if(Input.GetAxis("hit") != 0.0f){

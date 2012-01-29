@@ -22,7 +22,7 @@ public class Robot : MonoBehaviour {
 	private AnimatedUVBehaviour movieTexture;
 	private int standardFrameRate;
 	
-	
+	private Vector3 lastPosition;
 	public bool AfterTumbling{
 		get;
 		private set;
@@ -58,6 +58,7 @@ public class Robot : MonoBehaviour {
 		jumping = false;
 		movieTexture = gameObject.GetComponent<AnimatedUVBehaviour>() as AnimatedUVBehaviour;
 		standardFrameRate = movieTexture.MovieSpeedFPS;
+		lastPosition = currentDirection;
 		
 		
 		
@@ -95,14 +96,23 @@ public class Robot : MonoBehaviour {
 	}
 	
 	private void calculateDirection(){
+		lastPosition = gameObject.transform.position;
 		currentDirection.x = currentSpeed;
 		if(jumping){
 			//Debug.Log("Jump Gravity");
-			currentDirection.y -= jumpingGravity * Time.deltaTime;
+			if(!charControler.isGrounded)
+				currentDirection.y -= jumpingGravity * Time.deltaTime;
+			//else 
+				//currentDirection.y = 0;
 		}else {
 			//Debug.Log("normal Grav");
-			currentDirection.y -= gravity * Time.deltaTime;
+			if(!charControler.isGrounded)
+				currentDirection.y -= gravity * Time.deltaTime;
+			//else 
+				//currentDirection.y = 0;
 		}
+		
+		
 	}
 	
 	private void move(Vector3 direction){
@@ -110,8 +120,23 @@ public class Robot : MonoBehaviour {
 		if(charControler != null){
 			charControler.Move(direction * Time.deltaTime);
 		}
-			
+		if(currentState == EmotionStates.States.TooFast)
+			GoCrazy();
 		
+		
+	}
+	
+	public void GoCrazy(){
+		var currentPosition = gameObject.transform.position;
+		Debug.Log("DirectionChange; " + (currentPosition.y - lastPosition.y));
+		if(currentPosition.y - lastPosition.y < 0 ){
+			Debug.Log("Down");
+			gameObject.transform.Rotate(0,0,-10);
+		} else if(currentPosition.y - lastPosition.y > 0 ){
+			Debug.Log("Up");
+			gameObject.transform.Rotate(0,0,-10);
+		} else
+			Debug.Log("Normal");
 	}
 	
 	public void Jump(float height){
