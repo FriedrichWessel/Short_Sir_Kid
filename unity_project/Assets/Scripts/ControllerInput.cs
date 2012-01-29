@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class ControllerInput : MonoBehaviour {
+public class ControllerInput : InteractionBehaviour {
 	
 	private Robot robot;
 	private float hitCooldown;
@@ -55,5 +55,22 @@ public class ControllerInput : MonoBehaviour {
 			
 		}
 		timeSinceLastHit += Time.deltaTime;
+	}
+	
+	public override void Swipe (MouseEventArgs mouse){
+		base.Swipe (mouse);
+		if(mouse.MoveDirection.y > 0 ){
+			// Swipe Down -> punish
+			if(timeSinceLastHit < hitCooldown){
+				
+			} else {
+				robot.Hit();
+				timeSinceLastHit = 0;
+			}
+		}
+		if(mouse.MoveDirection.y < 0){
+			// swipe up -> jump
+			robot.Jump();
+		}
 	}
 }

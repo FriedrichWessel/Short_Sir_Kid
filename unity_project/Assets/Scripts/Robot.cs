@@ -27,6 +27,13 @@ public class Robot : MonoBehaviour {
 	public Texture2D normalTexture;
 	public Texture2D crazyTexture;
 	
+	public Rigidbody Torso;
+	public Rigidbody Leg1;
+	public Rigidbody Leg2;
+	public Rigidbody Arm1;
+	public Rigidbody Arm2;
+	public Rigidbody Head;
+	
 	private Vector3 lastPosition;
 	public bool AfterTumbling{
 		get;
@@ -67,6 +74,13 @@ public class Robot : MonoBehaviour {
 		standardRotation = gameObject.transform.rotation;
 		movieTexture.Textures[0] = sadTexture;
 		movieTexture.ReloadTexture();
+		
+		Torso.gameObject.renderer.enabled = false;
+		Leg1.gameObject.renderer.enabled = false;
+		Leg2.gameObject.renderer.enabled = false;
+		Arm1.gameObject.renderer.enabled = false;
+		Arm2.gameObject.renderer.enabled = false;
+		Head.gameObject.renderer.enabled = false;
 		
 		
 		
@@ -258,6 +272,47 @@ public class Robot : MonoBehaviour {
 			lastState = currentState ;	
 		}
 		
+		
+	}
+	
+	public void Die(){
+		var position = gameObject.transform.position;
+		
+		Torso.gameObject.transform.position = position;
+		Head.gameObject.transform.position = position;
+		Leg1.gameObject.transform.position = position;
+		Leg2.gameObject.transform.position = position;
+		Arm1.gameObject.transform.position = position;
+		Arm2.gameObject.transform.position = position;
+		
+		Torso.gameObject.renderer.enabled = true;
+		Leg1.gameObject.renderer.enabled = true;
+		Leg2.gameObject.renderer.enabled = true;
+		Arm1.gameObject.renderer.enabled = true;
+		Arm2.gameObject.renderer.enabled = true;
+		Head.gameObject.renderer.enabled = true;
+		
+		
+		currentSpeed = 0;
+		gameObject.renderer.enabled = false;
+		Torso.useGravity = true;
+		Leg1.useGravity = true;
+		Leg2.useGravity = true;
+		Arm1.useGravity = true;
+		Arm2.useGravity = true;
+		Head.useGravity = true;
+		
+		var force = 10;
+		Torso.AddExplosionForce(1,position,force);
+		Leg1.AddExplosionForce(1,position,force);
+		Leg2.AddExplosionForce(1,position,force);
+		Arm1.AddExplosionForce(1,position,force);
+		Arm2.AddExplosionForce(1,position,force);
+		Head.AddExplosionForce(1,position,force);
+		
+		var boom = gameObject.GetComponentInChildren<Detonator>() as Detonator;
+		if(boom != null)
+			boom.Explode();
 		
 	}
 	

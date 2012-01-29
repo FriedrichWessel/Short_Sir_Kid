@@ -19,6 +19,7 @@ public class GameWorld : MonoBehaviour {
 	public float MaxSpeed = 20;
 	public float PredatorSpeed = 5;
 	public float PredatorMaxDistance = 1;
+	public float PredatorMinDistance = -2;
 	public float HardStopperStep = 4;
 	public float SoftStopperStep = 2;
 	public float SpeedUpStep = 4;
@@ -32,6 +33,7 @@ public class GameWorld : MonoBehaviour {
 	private float timeTillGameEnd = 10;
 	
 	private float runningTime = 0.0f;
+	private float colorValue;
 	
 	
 	
@@ -49,13 +51,20 @@ public class GameWorld : MonoBehaviour {
 		}
 
 		Emotions= new EmotionStates();
+		colorValue = RenderSettings.ambientLight.r;
 
 	}
 	
 	void Update(){
 		if(waitForGameEnd){
 			timeTillGameEnd -= Time.deltaTime;
+			
 		}
+		if(timeTillGameEnd <= 1){
+			colorValue -= 1*Time.deltaTime;
+			RenderSettings.ambientLight = new Color(colorValue,colorValue, colorValue);
+		}
+			
 		if(timeTillGameEnd <= 0)
 			GameEnd(false, 0);
 		
@@ -72,6 +81,11 @@ public class GameWorld : MonoBehaviour {
 			var pos = PredatorEntity.transform.position;
 			pos.x = RobotEntity.transform.position.x;
 			pos.x -= PredatorMaxDistance;
+			PredatorEntity.transform.position = pos;
+		} else if(RobotEntity.transform.position.x -  PredatorEntity.transform.position.x < PredatorMinDistance){
+			var pos = PredatorEntity.transform.position;
+			pos.x = RobotEntity.transform.position.x;
+			pos.x -= PredatorMinDistance;
 			PredatorEntity.transform.position = pos;
 		}
 		
