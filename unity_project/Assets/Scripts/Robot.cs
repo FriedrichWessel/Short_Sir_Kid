@@ -23,6 +23,10 @@ public class Robot : MonoBehaviour {
 	private int standardFrameRate;
 	private Quaternion standardRotation;
 	
+	public Texture2D sadTexture;
+	public Texture2D normalTexture;
+	public Texture2D crazyTexture;
+	
 	private Vector3 lastPosition;
 	public bool AfterTumbling{
 		get;
@@ -61,6 +65,8 @@ public class Robot : MonoBehaviour {
 		standardFrameRate = movieTexture.MovieSpeedFPS;
 		lastPosition = currentDirection;
 		standardRotation = gameObject.transform.rotation;
+		movieTexture.Textures[0] = sadTexture;
+		movieTexture.ReloadTexture();
 		
 		
 		
@@ -127,7 +133,7 @@ public class Robot : MonoBehaviour {
 		}
 		else{// check for normal Rotation
 			var currentPosition = gameObject.transform.position;
-			Debug.Log("DirectionChange; " + (currentPosition.y - lastPosition.y));
+			//Debug.Log("DirectionChange; " + (currentPosition.y - lastPosition.y));
 			if(currentPosition.y - lastPosition.y < 0 ){
 				//Debug.Log("Down");
 				if(charControler.isGrounded)
@@ -149,13 +155,13 @@ public class Robot : MonoBehaviour {
 		var currentPosition = gameObject.transform.position;
 		//Debug.Log("DirectionChange; " + (currentPosition.y - lastPosition.y));
 		if(currentPosition.y - lastPosition.y < 0 ){
-			Debug.Log("Down");
+			//Debug.Log("Down");
 			gameObject.transform.Rotate(0,0,-10);
 		} else if(currentPosition.y - lastPosition.y > 0 ){
-			Debug.Log("Up");
+			//Debug.Log("Up");
 			gameObject.transform.Rotate(0,0,-10);
-		} else
-			Debug.Log("Normal");
+		} //else
+			//Debug.Log("Normal");
 	}
 	
 	public void Jump(float height){
@@ -236,10 +242,17 @@ public class Robot : MonoBehaviour {
 				Debug.Log("Reached To Fast");
 				IncreaseSpeed(maxSpeed);
 				// Do Graphic Changes here
+				movieTexture.Textures[0] = crazyTexture;
+				movieTexture.ReloadTexture();
 			} else if(currentState == EmotionStates.States.TooSlow){
 				Debug.Log("Reached Too Slow");
 				DecreaseSpeed(maxSpeed);
 				// Do Graphic Changes here
+				movieTexture.Textures[0] = sadTexture;
+				movieTexture.ReloadTexture();
+			} else{
+				movieTexture.Textures[0] = normalTexture;
+				movieTexture.ReloadTexture();
 			}
 				
 			lastState = currentState ;	

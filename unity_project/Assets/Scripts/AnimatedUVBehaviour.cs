@@ -32,6 +32,10 @@ public class AnimatedUVBehaviour : UVMoveBehaviour {
 		//AbsoluteUVPosition = true;
 
 	}
+	
+	public void ReloadTexture(){
+		renderer.material.SetTexture("_MainTex", Textures[currentTexture]);
+	}
 
 	void Awake(){
 		AwakeOverride();
