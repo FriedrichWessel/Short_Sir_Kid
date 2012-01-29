@@ -109,6 +109,8 @@ public class Robot : MonoBehaviour {
 				startJump = false;
 			} else if(charControler.isGrounded && jumping){
 				jumping = false;
+			} else if(jumping){
+				movieTexture.MovieSpeedFPS = 0;
 			}
 				
 			calculateDirection();
@@ -183,6 +185,8 @@ public class Robot : MonoBehaviour {
 			//Debug.Log("jump");
 			currentDirection.y =  height;
 			startJump = true;
+			movieTexture.MovieSpeedFPS = 0;
+			
 			//jumping = true;
 		}
 	}
@@ -228,8 +232,8 @@ public class Robot : MonoBehaviour {
 		diff += 1;
 		
 		float value = standardFrameRate * diff ;
-		
-		movieTexture.MovieSpeedFPS = (int)value;
+		if(!jumping)
+			movieTexture.MovieSpeedFPS = (int)value;
 		
 		
 	}
