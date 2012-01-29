@@ -44,7 +44,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AnimatedUVBehaviour.cs" />
      <Compile Include="Assets\Scripts\CameraScript.cs" />
      <Compile Include="Assets\Scripts\ColliderScripts\Burstable.cs" />
      <Compile Include="Assets\Scripts\ColliderScripts\FinishLine.cs" />
@@ -55,11 +54,46 @@
      <Compile Include="Assets\Scripts\ColliderScripts\SpeedUp.cs" />
      <Compile Include="Assets\Scripts\ControllerInput.cs" />
      <Compile Include="Assets\Scripts\EmotionStates.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Behaviours\AnimatedUVBehaviour.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Behaviours\HorizontalLayoutBehaviour.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Behaviours\ILayoutBehaviour.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Behaviours\InteractionBehaviour.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Behaviours\LayoutBehaviour.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Behaviours\UVMoveBehaviour.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Behaviours\VerticalLayoutBehaviour.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Configs\ScreenConfig.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Elements\AlertTextPanel.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Elements\Button.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Elements\CameraScreen.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Elements\Control.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Elements\FPSPanel.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Elements\Frame.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Elements\GUIPlane.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Elements\Panel.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Elements\TextPanel.cs" />
+     <Compile Include="Assets\Scripts\GUILib\EventArgs\MouseEventArgs.cs" />
+     <Compile Include="Assets\Scripts\GUILib\FloatExtensions.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Samples\TestAllInteractionBehaviour.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Samples\TestAllInteractionsBehaviour.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Samples\TestMoveWithMouse.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Samples\TestSwipeBehaviour.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Samples\TestUIControllerBehaviour.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Unity\_Vector2Extensions.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Unity\_Vector3Extensions.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Wrapper\InputEvents.cs" />
+     <Compile Include="Assets\Scripts\GUILib\Wrapper\RectExtension.cs" />
      <Compile Include="Assets\Scripts\GameWorld.cs" />
+     <Compile Include="Assets\Scripts\General\ControlManager.cs" />
+     <Compile Include="Assets\Scripts\General\Controller.cs" />
+     <Compile Include="Assets\Scripts\General\Samples\BehaviourEventArgs.cs" />
+     <Compile Include="Assets\Scripts\General\Samples\SampleMovementController.cs" />
+     <Compile Include="Assets\Scripts\General\TimeBehaviour.cs" />
+     <Compile Include="Assets\Scripts\General\Timer.cs" />
      <Compile Include="Assets\Scripts\HideOnPlay.cs" />
      <Compile Include="Assets\Scripts\Predator.cs" />
+     <Compile Include="Assets\Scripts\ResourceManager\ResourceLoadingBehaviour.cs" />
+     <Compile Include="Assets\Scripts\ResourceManager\ResourceManager.cs" />
      <Compile Include="Assets\Scripts\Robot.cs" />
-     <Compile Include="Assets\Scripts\UVMoveBehaviour.cs" />
      <None Include="Assets\Standard Assets\Detonator\Resources\Detonator\Textures\HeatDistort.shader" />
   </ItemGroup>
   <ItemGroup>

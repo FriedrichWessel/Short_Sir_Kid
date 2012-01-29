@@ -20,7 +20,7 @@ public class Robot : MonoBehaviour {
 	private bool startJump = false;
 	private bool jumping = false;
 	private AnimatedUVBehaviour movieTexture;
-	private int standardFrameRate;
+	private float standardFrameRate;
 	private Quaternion standardRotation;
 	
 	public Texture2D sadTexture;
