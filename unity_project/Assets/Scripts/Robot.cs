@@ -27,6 +27,12 @@ public class Robot : MonoBehaviour {
 	public Texture2D normalTexture;
 	public Texture2D crazyTexture;
 	
+	public Texture2D HitTexture;
+	
+	private bool duringHit = false;
+	public float HitTime = 1.0f;
+	private float currentHitTime = 0;
+	
 	public Rigidbody Torso;
 	public Rigidbody Leg1;
 	public Rigidbody Leg2;
@@ -117,6 +123,21 @@ public class Robot : MonoBehaviour {
 			move(currentDirection);	
 		}
 		
+		if(duringHit){
+			currentHitTime += Time.deltaTime;
+			if(currentHitTime >= HitTime){
+				duringHit = false;
+				currentHitTime = 0;
+				if(currentState == EmotionStates.States.TooFast)
+					movieTexture.Textures[0] = crazyTexture;
+				if(currentState == EmotionStates.States.TooSlow)
+					movieTexture.Textures[0] = sadTexture;
+				else
+					movieTexture.Textures[0] = normalTexture;
+				movieTexture.ReloadTexture();
+			}
+		}
+		
 	}
 	
 	private void calculateDirection(){
@@ -202,6 +223,10 @@ public class Robot : MonoBehaviour {
 			currentSpeed = GameWorld.Instance.Emotions.GetStateSpeed(EmotionStates.States.TooSlow);
 		else 
 			DecreaseHappyness(decreaseSteps);
+		
+		duringHit = true;
+		movieTexture.Textures[0] = HitTexture;
+		movieTexture.ReloadTexture();
 	}
 	public void IncreaseHappyness(){
 		IncreaseHappyness(increaseSteps);
@@ -260,17 +285,24 @@ public class Robot : MonoBehaviour {
 				Debug.Log("Reached To Fast");
 				IncreaseSpeed(maxSpeed);
 				// Do Graphic Changes here
-				movieTexture.Textures[0] = crazyTexture;
-				movieTexture.ReloadTexture();
+				if(!duringHit){
+					movieTexture.Textures[0] = crazyTexture;
+					movieTexture.ReloadTexture();	
+				}
+				
 			} else if(currentState == EmotionStates.States.TooSlow){
 				Debug.Log("Reached Too Slow");
 				DecreaseSpeed(maxSpeed);
 				// Do Graphic Changes here
-				movieTexture.Textures[0] = sadTexture;
-				movieTexture.ReloadTexture();
+				if(!duringHit){
+					movieTexture.Textures[0] = sadTexture;
+					movieTexture.ReloadTexture();
+				}
 			} else{
-				movieTexture.Textures[0] = normalTexture;
-				movieTexture.ReloadTexture();
+				if(!duringHit){
+					movieTexture.Textures[0] = normalTexture;
+					movieTexture.ReloadTexture();
+				}
 			}
 				
 			lastState = currentState ;	
