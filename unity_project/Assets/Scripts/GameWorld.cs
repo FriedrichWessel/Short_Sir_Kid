@@ -29,11 +29,14 @@ public class GameWorld : MonoBehaviour {
 	public float PossibilityToJumpWhenCrazy = 10;
 	public float PossibilityToStopWhenCrazy = 10;
 	public float PossibilityNotToJumpWhenCrazy = 10;
+	public int LoadLevelFail = 0;
+	public int LoadLevelWin = 1;
 	private bool waitForGameEnd = false;
 	private float timeTillGameEnd = 10;
 	
 	private float runningTime = 0.0f;
 	private float colorValue;
+	private bool savedWin = false;
 	
 	
 	
@@ -66,7 +69,7 @@ public class GameWorld : MonoBehaviour {
 		}
 			
 		if(timeTillGameEnd <= 0)
-			GameEnd(false, 0);
+			GameEnd(savedWin, 0);
 		
 		if(runningTime >= CheerUpTime){
 
@@ -99,13 +102,14 @@ public class GameWorld : MonoBehaviour {
 		if(time > 0){
 			waitForGameEnd = true;
 			timeTillGameEnd = time;
+			savedWin = winGame;
 			return;
 		}
 		if(!winGame){ // just start all over again
 			Debug.Log("YouSuck!");
-			Application.LoadLevel(0);
+			Application.LoadLevel(LoadLevelFail);
 		} else 
-			Application.LoadLevel("EndScreen");
+			Application.LoadLevel(LoadLevelWin);
 	}
 	
 }

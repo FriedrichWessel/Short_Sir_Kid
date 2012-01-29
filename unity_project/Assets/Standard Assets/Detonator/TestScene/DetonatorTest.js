@@ -97,13 +97,13 @@ function SpawnExplosion()
 		var ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 
 var hit : RaycastHit;
-			/*if (Physics.Raycast (ray, hit, 1000)) 
+			if (Physics.Raycast (ray, hit, 1000)) 
 			{
 				var offsetSize = currentDetonator.GetComponent("Detonator").size / 3;
 				var hitPoint = hit.point + ((Vector3.Scale(hit.normal, Vector3(offsetSize,offsetSize,offsetSize))));
 				var exp : GameObject = Instantiate (currentDetonator, hitPoint, Quaternion.identity);
 				exp.GetComponent("Detonator").detail = detailLevel;
 			}
-			Destroy(exp, explosionLife); */
+			Destroy(exp, explosionLife); 
 
 }

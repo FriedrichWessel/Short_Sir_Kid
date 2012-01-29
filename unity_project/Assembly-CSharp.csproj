@@ -94,6 +94,7 @@
      <Compile Include="Assets\Scripts\ResourceManager\ResourceLoadingBehaviour.cs" />
      <Compile Include="Assets\Scripts\ResourceManager\ResourceManager.cs" />
      <Compile Include="Assets\Scripts\Robot.cs" />
+     <Compile Include="Assets\Scripts\StartTimer.cs" />
      <None Include="Assets\Standard Assets\Detonator\Resources\Detonator\Textures\HeatDistort.shader" />
   </ItemGroup>
   <ItemGroup>
