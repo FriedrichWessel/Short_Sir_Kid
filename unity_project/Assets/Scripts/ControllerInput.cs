@@ -57,20 +57,20 @@ public class ControllerInput : InteractionBehaviour {
 		timeSinceLastHit += Time.deltaTime;
 	}
 	
-	public override void Swipe (MouseEventArgs mouse){
-		base.Swipe (mouse);
-		if(mouse.MoveDirection.y > 0 ){
-			// Swipe Down -> punish
+	public override void Click(MouseEventArgs mouse){
+		base.Click(mouse);
+		Debug.Log("MouseX: " + mouse.MousPosition.x);
+		if(mouse.MousPosition.x > 512){
+			// right Click -> jump
+			robot.Jump();
+		}else {
+			// Left Click -> punish
 			if(timeSinceLastHit < hitCooldown){
 				
 			} else {
 				robot.Hit();
 				timeSinceLastHit = 0;
 			}
-		}
-		if(mouse.MoveDirection.y < 0){
-			// swipe up -> jump
-			robot.Jump();
 		}
 	}
 }

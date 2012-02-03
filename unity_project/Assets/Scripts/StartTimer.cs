@@ -1,9 +1,10 @@
 using UnityEngine;
 using System.Collections;
 
-public class StartTimer : MonoBehaviour {
+public class StartTimer : InteractionBehaviour {
 	
 		public int LoadLevel = 0;
+	public int LoadLevelMobile = 0;
 
 
 		
@@ -16,5 +17,12 @@ public class StartTimer : MonoBehaviour {
 	void Update () {
 		if(Input.GetAxis("jump") != 0)
 			Application.LoadLevel(LoadLevel);
+	}
+	
+	public override void Click (MouseEventArgs mouse){
+		base.Click (mouse);
+#if UNITY_IPHONE || UNITY_ANDROID
+		Application.LoadLevel(LoadLevelMobile);
+#endif
 	}
 }

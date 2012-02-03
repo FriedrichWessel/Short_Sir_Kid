@@ -71,6 +71,8 @@ public class Frame : MonoBehaviour
 		
 		UpdateParent();
 		if(FullscreenElement){
+			if(ScreenConfig.Instance == null)
+				return;
 			VirtualRegionOnScreen.width = ScreenConfig.Instance.TargetScreenWidth;//Screen.width;
 			VirtualRegionOnScreen.height = ScreenConfig.Instance.TargetScreenHeight;//Screen.height;
 		}
