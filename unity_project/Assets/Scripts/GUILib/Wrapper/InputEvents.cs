@@ -143,6 +143,7 @@ public class InputEvents : MonoBehaviour{
 			return;
 		}
 		var e = new MouseEventArgs(buttonId);
+		e.MousPosition = mousePosition;
 		handler(this, e);
 	}
 	

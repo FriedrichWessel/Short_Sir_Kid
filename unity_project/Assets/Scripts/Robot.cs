@@ -69,7 +69,7 @@ public class Robot : MonoBehaviour {
 	//private CharacterController charControler;
 	// Use this for initialization
 	void Start () {
-		Debug.Log("Start Robot");
+		//Debug.Log("Start Robot");
 		generalMoveSpeed = GameWorld.Instance.MoveSpeed;
 		jumpHeight = GameWorld.Instance.JumpHeight;
 		currentDirection = new Vector3(generalMoveSpeed,0,0);

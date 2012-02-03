@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class ControllerInput : MonoBehaviour {
+public class ControllerInput : InteractionBehaviour {
 	
 	private Robot robot;
 	private float hitCooldown;
@@ -57,5 +57,20 @@ public class ControllerInput : MonoBehaviour {
 		timeSinceLastHit += Time.deltaTime;
 	}
 	
-	
+	public override void Click(MouseEventArgs mouse){
+		base.Click(mouse);
+		Debug.Log("MouseX: " + mouse.MousPosition.x);
+		if(mouse.MousPosition.x > 512){
+			// right Click -> jump
+			robot.Jump();
+		}else {
+			// Left Click -> punish
+			if(timeSinceLastHit < hitCooldown){
+				
+			} else {
+				robot.Hit();
+				timeSinceLastHit = 0;
+			}
+		}
+	}
 }
