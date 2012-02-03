@@ -8,6 +8,7 @@ build/*
 3d/
 images/
 released/
+GGJ_HNT_prasentation/
 !unity_project/Library/*.asset
 !unity_project/Library/AssetImportState
 !unity_project/Library/AssetVersioning.db
