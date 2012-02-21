@@ -1,8 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../../../../Volumes/Untitled/Präsentation.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Standard Assets/Detonator/TestScene/DetonatorTest.js">
     <Files>
-      <File FileName="../../../../Volumes/Untitled/Präsentation.cs" Line="42" Column="4" />
+      <File FileName="Assets/Scripts/ControllerInput.cs" Line="1" Column="19" />
+      <File FileName="Assets/Scripts/GUILib/Elements/Frame.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Robot.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GUILib/Elements/Panel.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GUILib/Elements/Control.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GUILib/Wrapper/InputEvents.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/StartTimer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CameraScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Standard Assets/Detonator/TestScene/DetonatorTest.js" Line="99" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
